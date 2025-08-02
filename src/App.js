@@ -5,6 +5,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Hello from React App (npm) 👋</h1>
+        <h1>PRODUCTION BRANCH 👋</h1>
         <p>This is a simple message app created using npm.</p>
       </header>
     </div>
