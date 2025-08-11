@@ -3,18 +3,17 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 22
+      nodejs: 18
+
+  pre_build:
     commands:
-      - echo "Installing dependencies..."
-      - npm ci --legacy-peer-deps
+      - npm install
 
   build:
     commands:
-      - echo "Building React application..."
       - npm run build
 
-artifacts:
-  files:
-    - '**/*'
-  base-directory: build
-  discard-paths: no
+  post_build:
+    commands:
+      - aws s3 cp --recursive ./build s3://www.taimoor-s3-bucket/
+      - aws cloudfront create-invalidation --distribution-id E20QTQ8GCYQPDD --path "/\*"
