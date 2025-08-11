@@ -15,5 +15,5 @@ phases:
 
   post_build:
     commands:
-      - aws s3 cp --recursive ./build s3://www.taimoor-s3-bucket/
-      - aws cloudfront create-invalidation --distribution-id E20QTQ8GCYQPDD --path "/\*"
+      - aws s3 cp --recursive ./build s3://www.<bucket name>/
+      - aws cloudfront create-invalidation --distribution-id <dis id > --path "/\*"
