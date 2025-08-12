@@ -4,6 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>TESTING CODE PIPELINE</h1>
         <h1>Hello from React App (npm) 👋</h1>
         <p>This is a simple message app created using npm.</p>
       </header>
