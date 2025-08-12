@@ -15,8 +15,8 @@ phases:
       - echo "Building React application..."
       - npm run build
 
-  artifacts:
-    files:
-      - '**/*'
-    base-directory: build
-    discard-paths: no
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build
+  discard-paths: no
