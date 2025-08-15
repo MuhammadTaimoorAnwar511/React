@@ -17,8 +17,13 @@ phases:
 
   post_build:
     commands:
+      - echo "Installing AWS CLI..."
+      - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - unzip awscliv2.zip
+      - sudo ./aws/install
+      - aws --version
       - echo "Creating CloudFront invalidation..."
-      - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*"
+      - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*" --region us-east-1
 
 artifacts:
   files:
