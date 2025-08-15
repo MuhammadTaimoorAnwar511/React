@@ -20,9 +20,9 @@ post_build:
     - echo "Checking identity..."
     - aws sts get-caller-identity
     - echo "Trying to get CloudFront distribution..."
-    - aws cloudfront get-distribution --id E3PZ9CZKCIRUDC --region us-east-1 || echo "GetDistribution failed"
+    - aws cloudfront get-distribution --id E3PZ9CZKCIRUDC --region us-east-1 
     - echo "Creating CloudFront invalidation..."
-    - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*" --region us-east-1 || echo "Invalidation failed"
+    - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*" --region us-east-1 
 
 artifacts:
   files:
