@@ -19,7 +19,7 @@ phases:
     commands:
       - aws sts get-caller-identity  
       - aws cloudfront get-distribution --id E3PZ9CZKCIRUDC --region us-east-1
-      - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*" --region us-east-1
+      - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/\*" --region us-east-1
 
 artifacts:
   files:
