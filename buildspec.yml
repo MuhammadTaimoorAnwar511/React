@@ -17,12 +17,12 @@ phases:
 
   post_build:
     commands:
-      - echo "Checking identity..."
-      - aws sts get-caller-identity
-      - echo "Trying to get CloudFront distribution..."
-      - aws cloudfront get-distribution --id E3PZ9CZKCIRUDC --region us-east-1 --debug
+      # - echo "Checking identity..."
+      # - aws sts get-caller-identity
+      # - echo "Trying to get CloudFront distribution..."
+      # - aws cloudfront get-distribution --id E3PZ9CZKCIRUDC --region us-east-1 --debug
       - echo "Creating CloudFront invalidation..."
-      - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*" --region us-east-1 --debug
+      - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*" --region us-east-1
 
 artifacts:
   files:
