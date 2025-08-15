@@ -17,8 +17,12 @@ phases:
 
   post_build:
     commands:
+      - echo "Testing AWS CLI permissions..."
+      - aws sts get-caller-identity  
+      - aws cloudfront get-distribution --id E3PZ9CZKCIRUDC --region us-east-1 || echo "GetDistribution failed"
       - echo "Creating CloudFront invalidation..."
-      - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*" --region us-east-1
+      - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*" --region us-east-1 2>&1 | tee cf_error.log
+      - if [ $? -ne 0 ]; then echo "INVALIDATION FAILED. ERROR:"; cat cf_error.log; exit 1; fi
 
 artifacts:
   files:
