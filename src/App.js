@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Testing again Cloudfront invalidation</h1>
+        <h1>Testing 2nd time Cloudfront invalidation</h1>
         <h1>Hello from React App (npm) 👋</h1>
         <p>This is a simple message app created using npm.</p>
       </header>
