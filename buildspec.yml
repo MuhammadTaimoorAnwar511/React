@@ -8,12 +8,17 @@ phases:
   pre_build:
     commands:
       - echo "Installing dependencies..."
-      - npm ci --legacy-peer-deps
+      - npm insyall --legacy-peer-deps
 
   build:
     commands:
       - echo "Building React application..."
       - npm run build
+
+  post_build:
+    commands:
+      - echo "Creating CloudFront invalidation..."
+      - aws cloudfront create-invalidation --distribution-id E3PZ9CZKCIRUDC --paths "/*"
 
 artifacts:
   files:
